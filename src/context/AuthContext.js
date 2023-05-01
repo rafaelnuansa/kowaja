@@ -30,7 +30,6 @@ export const AuthContextProdiver = ({children}) => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             setCurrentUser(user)
             if (user) {
-                // Jika user sudah login, arahkan ke halaman dashboard
             }else{
                 navigate('/login');
             }

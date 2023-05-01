@@ -4,6 +4,7 @@ import { UserAuth } from "../context/AuthContext";
 import toast from "react-hot-toast";
 import KowajaLogo from "../assets/images/logo.png";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [showLogin, setShowLogin] = useState(true);
@@ -14,23 +15,23 @@ function Login() {
   const [error, setError] = useState("");
   const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
-  const { createUser } = UserAuth();
-  const { loginUser } = UserAuth();
+  const { createUser, loginUser } = UserAuth();
 
   useEffect(() => {
+    document.title = 'Login Page Kowaja';
     const checkAuth = async () => {
       try {
         const user = await loginUser();
         setCurrentUser(user);
         navigate('/dashboard')
+        console.log(user);
       } catch (e) {
         console.log(e);
       }
     };
     checkAuth();
-  }, [navigate]);
+  }, [navigate, loginUser]);
 
- 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
@@ -201,13 +202,13 @@ function Login() {
                   )}
                   <span>
                     {showLogin ? (
-                      <a href="#" className="text-danger" onClick={toggleForm}>
+                      <Link className="text-danger" onClick={toggleForm}>
                         don't have an account yet?
-                      </a>
+                      </Link>
                     ) : (
-                      <a href="#" className="text-danger" onClick={toggleForm}>
+                      <Link className="text-danger" onClick={toggleForm}>
                         already have account?
-                      </a>
+                      </Link>
                     )}
                   </span>
 

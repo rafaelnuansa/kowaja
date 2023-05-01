@@ -6,6 +6,8 @@ import TinyLineChartCard from "../components/TinyLineChartCard";
 import TinyBarChartCard from "../components/TinyBarChartCard";
 import BannerSlider from "../components/BannerSlider";
 import BorrowerChartCard from "../components/BorrowerChartCard";
+import LenderChartCard from "../components/LenderChartCard";
+import ApproveChartCard from "../components/ApproveChartCard";
 
 function Dashboard() {
   // const navigate = useNavigate();
@@ -71,7 +73,7 @@ function Dashboard() {
                   <span className="font-1">^ 1.10% Since Yesterday</span>
                 </Col>
                 <div className="col">
-                  <TinyLineChartCard />
+                  <LenderChartCard />
                 </div>
               </div>
             </Card>
@@ -86,7 +88,7 @@ function Dashboard() {
                   <span className="font-1">^ 1.10% Since Yesterday</span>
                 </Col>
                 <Col>
-                  <TinyLineChartCard />
+                  <ApproveChartCard />
                 </Col>
               </div>
             </Card>

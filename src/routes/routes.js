@@ -13,7 +13,7 @@ import CreateProduct from "../pages/CreateProduct";
 import { AuthContextProvider } from "../context/AuthContext";
 function RoutesIndex() {
 
-
+ 
   return (
     <AuthContextProvider>
       <Routes>

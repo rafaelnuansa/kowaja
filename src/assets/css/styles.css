@@ -72,6 +72,10 @@ a {
   padding: 0;
 }
 
+.icon-sidebar {
+  margin-right: 5px;   
+}
+
 #sidebar-wrapper .list-group {
   width: 15rem;
 }

@@ -6,6 +6,7 @@ import KowajaLogo from "../assets/images/logo.png";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
+
 function Login() {
   const [showLogin, setShowLogin] = useState(true);
   const [formStatus, setFormStatus] = useState("enter");
@@ -18,7 +19,7 @@ function Login() {
   const { createUser, loginUser } = UserAuth();
 
   useEffect(() => {
-    document.title = 'Login Page Kowaja';
+    // document.title = 'Login Page Kowaja';
   }, []);
 
   const handleLogin = async (e) => {

@@ -11,9 +11,6 @@ import CreateProduct from "../pages/CreateProduct";
 
 // Auth context to firebase
 import { AuthContextProvider } from "../context/AuthContext";
-
-// import PrivateRoute from "./PrivateRoute";
-
 function RoutesIndex() {
 
 

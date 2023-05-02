@@ -12,7 +12,6 @@ import CreateProduct from "../pages/CreateProduct";
 
 // Auth context to firebase
 import { AuthContextProvider } from "../context/AuthContext";
-import UpdateProfile from "../pages/UpdateProfile";
 
 
 function RoutesIndex() {
@@ -28,7 +27,7 @@ function RoutesIndex() {
         <Route path="/upload" element={<UploadAds />} />
         <Route path="/create-news" element={<CreateNews />} />
         <Route path="/create-product" element={<CreateProduct />} />
-        <Route path="/update-profile" element={<UpdateProfile />} />
+        <Route path="/update-profile" element={<CreateProduct />} />
       </Routes>
     </AuthContextProvider>
   );

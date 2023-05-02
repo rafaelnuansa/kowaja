@@ -5,6 +5,7 @@ import {
   signOut,
   onAuthStateChanged,
   updateProfile } from 'firebase/auth';
+  
 import { auth } from '../Firebase';
 import { useNavigate } from 'react-router-dom';
 
@@ -37,6 +38,7 @@ export const AuthContextProvider = ({ children }) => {
       updateProfile(auth.currentUser, { displayName })
         .then(() => {
           setCurrentUser(auth.currentUser);
+          localStorage.setItem('user', JSON.stringify(auth.currentUser));
         })
         .catch((error) => {
           console.log(error.message);

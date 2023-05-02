@@ -27,7 +27,7 @@ function Login() {
     setError("");
     try {
       await loginUser(email, password);
-      const name = email.match(/^([^@]*)@/)[1];
+      const name = email
       setCurrentUser(currentUser);
       toast.success(`Welcome back ${name}.`, {
         icon: "👏",
@@ -82,7 +82,7 @@ function Login() {
     }
     try {
       await createUser(email, password);
-      setCurrentUser(email);
+      setCurrentUser(currentUser);
       //show toast
       toast.success("Sign up successfully, you can login now.", {
         duration: 3000,

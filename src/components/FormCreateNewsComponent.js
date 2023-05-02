@@ -1,5 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
+// import { InputText } from "./Inputs/InputText";
+import InputText from "./Inputs/InputText";
 
 function FormCreateNewsComponent() {
   const [title, setTitle] = useState("");
@@ -42,16 +44,19 @@ function FormCreateNewsComponent() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Form.Group className="mb-3" controlId="title">
-        <Form.Label className="fw-400 font-1">Title</Form.Label>
-        <Form.Control
-          className="fc-kowaja"
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-      </Form.Group>
+      <InputText
+        titleForm="title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      <InputText
+        titleForm="Description"
+        value={description}
+        textType={"textarea"}
+        onChange={(e) => setDescription(e.target.value)}
+      />
 
+      {/* 
       <Form.Group className="mb-3" controlId="description">
         <Form.Label className="fw-400 font-1">Description</Form.Label>
         <Form.Control
@@ -61,7 +66,7 @@ function FormCreateNewsComponent() {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-      </Form.Group>
+      </Form.Group> */}
 
       <Form.Group className="mb-3" controlId="image">
         <Form.Label className="fw-400 font-1">Enter a News Image</Form.Label>
@@ -116,14 +121,13 @@ function FormCreateNewsComponent() {
             <div className="fw-400">Drop here</div>
           </Row>
         </div>
-        
       </Form.Group>
 
       <Form.Group>
-      <Row className="d-flex justify-content-center">
+        <Row className="d-flex justify-content-center">
           <Col className="col-lg-4 ms-2 mb-4">
             <Button className="w-100" variant="kowaja" type="submit">
-             Create News
+              Create News
             </Button>
           </Col>
         </Row>

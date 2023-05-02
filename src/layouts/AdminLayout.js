@@ -8,7 +8,11 @@ import toast from "react-hot-toast";
 const LayoutAdmin = ({ children }) => {
   //state toggle
   const [sidebarToggle, setSidebarToggle] = useState(false);
-  const { logoutUser } = UserAuth();
+  const { currentUser, logoutUser } = UserAuth();
+  const [ dataUser, setDataUser] = useState({
+    email: '',
+    displayName:'Nama User'
+  });
   //navigate
   const navigate = useNavigate();
   //function toggle hanlder
@@ -32,8 +36,14 @@ const LayoutAdmin = ({ children }) => {
 
   //hook useEffect
   useEffect(() => {
-
-  }, []);
+    if (currentUser) {
+      setDataUser({
+        email:currentUser.email,
+        displayName: currentUser.displayName || 'Nama User'
+      });
+      console.log(currentUser);
+    }
+    }, [currentUser]);
 
   //function logout
   const handleLogout = async () => {
@@ -87,8 +97,7 @@ const LayoutAdmin = ({ children }) => {
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
-                  <NavDropdown title='Joana Monero' className="border-0" id="basic-nav-dropdown">
-                    
+                  <NavDropdown title={dataUser.displayName} className="border-0" id="basic-nav-dropdown">
                     <NavDropdown.Item onClick={handleLogout}>
                       {" "}
                       Logout

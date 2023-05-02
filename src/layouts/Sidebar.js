@@ -3,7 +3,7 @@ import React from "react";
 //import Link
 import { Link, useLocation } from "react-router-dom";
 
-function SidebarComponent() {
+function Sidebar() {
 
   const location = useLocation();
   const { pathname } = location;
@@ -83,4 +83,4 @@ function SidebarComponent() {
   );
 }
 
-export default SidebarComponent;
+export default Sidebar;

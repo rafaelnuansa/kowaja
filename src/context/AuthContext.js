@@ -4,12 +4,12 @@ import {
      signInWithEmailAndPassword,
      signOut,
      onAuthStateChanged } from 'firebase/auth';
-import {auth} from '../Firebase'
+import { auth } from '../Firebase'
 import { useNavigate } from 'react-router';
 
 const UserContext = createContext()
 
-export const AuthContextProdiver = ({children}) => {
+export const AuthContextProvider = ({children}) => {
 
     const navigate = useNavigate();
     const createUser = (email, password) => {
@@ -18,19 +18,26 @@ export const AuthContextProdiver = ({children}) => {
     
     const loginUser = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
+            .then(userCredential => {
+                const { user } = userCredential;
+                localStorage.setItem('user', JSON.stringify(user));
+                return userCredential;
+            })
     }
 
     const logoutUser = () => {
+        localStorage.removeItem('user');
         return signOut(auth)
     }
     
-    const [currentUser, setCurrentUser] = useState(null)
+    const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('user')))
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             setCurrentUser(user)
             if (user) {
             }else{
+                localStorage.removeItem('user');
                 navigate('/login');
             }
         })
@@ -38,7 +45,7 @@ export const AuthContextProdiver = ({children}) => {
     }, [navigate])
 
     return (
-        <UserContext.Provider value={{createUser, loginUser, logoutUser, currentUser}}>
+        <UserContext.Provider value={{ createUser, loginUser, logoutUser, currentUser }}>
             {children}
         </UserContext.Provider>
     )

@@ -1,21 +1,26 @@
 //import react router dom
 import { Routes, Route } from "react-router-dom";
-//import view Login
+
+//import pages
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import LoanApp from "../pages/LoanApp";
 import UploadAds from "../pages/UploadAds";
-
-// Auth context to firebase
-import { AuthContextProdiver } from "../context/AuthContext";
 import CreateNews from "../pages/CreateNews";
 import CreateProduct from "../pages/CreateProduct";
 
+// Auth context to firebase
+import { AuthContextProvider } from "../context/AuthContext";
+
+// import PrivateRoute from "./PrivateRoute";
+
 function RoutesIndex() {
+
+
   return (
-    <AuthContextProdiver>
+    <AuthContextProvider>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Login />  } />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/loan" element={<LoanApp />} />
@@ -23,7 +28,7 @@ function RoutesIndex() {
         <Route path="/create-news" element={<CreateNews />} />
         <Route path="/create-product" element={<CreateProduct />} />
       </Routes>
-    </AuthContextProdiver>
+    </AuthContextProvider>
   );
 }
 

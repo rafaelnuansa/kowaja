@@ -1,24 +1,16 @@
-//import React
 import React, { useState, useEffect } from "react";
 import { UserAuth } from "../context/AuthContext";
-//import component bootstrap
 import { Navbar, NavDropdown, Form, Button } from "react-bootstrap";
-//import Sidebar
-import SidebarComponent from "../components/SidebarComponent";
-//hook link
+import Sidebar from "./Sidebar";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import { auth } from "../Firebase";
 
 const LayoutAdmin = ({ children }) => {
   //state toggle
   const [sidebarToggle, setSidebarToggle] = useState(false);
   const { logoutUser } = UserAuth();
-  const [showLoading, setShowLoading] = useState(false);
-  const [user, setUser] = useState(auth);
   //navigate
   const navigate = useNavigate();
-
   //function toggle hanlder
   const sidebarToggleHandler = (e) => {
     e.preventDefault();
@@ -40,12 +32,13 @@ const LayoutAdmin = ({ children }) => {
 
   //hook useEffect
   useEffect(() => {
+
   }, []);
 
   //function logout
   const handleLogout = async () => {
     try {
-      setShowLoading(true); // menunjukkan animasi loading
+      // setShowLoading(true); // menunjukkan animasi loading
       await logoutUser();
       navigate("/login");
       toast.success(`You are logout.`, {
@@ -60,17 +53,17 @@ const LayoutAdmin = ({ children }) => {
     } catch (error) {
       toast(error);
     } finally {
-      setShowLoading(false); // menyembunyikan animasi loading
+      // setShowLoading(false); // menyembunyikan animasi loading
     }
   };
 
-  const userName = user.displayName;
   return (
     <React.Fragment>
+      
       <div className="d-flex sb-sidenav-toggled" id="wrapper">
         <div className="bg-white" id="sidebar-wrapper">
           <div className="sidebar-heading text-center"></div>
-          <SidebarComponent />
+          <Sidebar />
         </div>
         <div id="page-content-wrapper">
           <Navbar className="navbar navbar-expand-lg navbar-light navbar-kowaja">
@@ -94,7 +87,7 @@ const LayoutAdmin = ({ children }) => {
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
-                  <NavDropdown title={userName} id="basic-nav-dropdown">
+                  <NavDropdown title='Joana Monero' className="border-0" id="basic-nav-dropdown">
                     
                     <NavDropdown.Item onClick={handleLogout}>
                       {" "}
@@ -108,6 +101,7 @@ const LayoutAdmin = ({ children }) => {
           <div className="container-fluid">{children}</div>
         </div>
       </div>
+      
     </React.Fragment>
   );
 };

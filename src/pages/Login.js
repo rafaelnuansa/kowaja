@@ -19,18 +19,7 @@ function Login() {
 
   useEffect(() => {
     document.title = 'Login Page Kowaja';
-    const checkAuth = async () => {
-      try {
-        const user = await loginUser();
-        setCurrentUser(user);
-        navigate('/dashboard')
-        console.log(user);
-      } catch (e) {
-        console.log(e);
-      }
-    };
-    checkAuth();
-  }, [navigate, loginUser]);
+  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -38,7 +27,7 @@ function Login() {
     try {
       await loginUser(email, password);
       const name = email.match(/^([^@]*)@/)[1];
-      setCurrentUser(email);
+      setCurrentUser(currentUser);
       toast.success(`Welcome back ${name}.`, {
         icon: "👏",
         duration: 3000,
@@ -92,7 +81,7 @@ function Login() {
     }
     try {
       await createUser(email, password);
-      currentUser(email);
+      setCurrentUser(email);
       //show toast
       toast.success("Sign up successfully, you can login now.", {
         duration: 3000,
@@ -103,7 +92,9 @@ function Login() {
           color: "#fff",
         },
       });
+      navigate("/dashboard");
     } catch (e) {
+      console.log(e.message);
       toast(e.message, {
         duration: 3000,
         position: "top-right",

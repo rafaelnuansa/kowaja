@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form, Row, Col, Image } from "react-bootstrap";
-import { UserAuth } from "../context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 import toast from "react-hot-toast";
 import KowajaLogo from "../assets/images/logo.png";
 import { useNavigate } from "react-router";
@@ -16,7 +16,7 @@ function Login() {
   const [error, setError] = useState("");
   const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
-  const { createUser, loginUser } = UserAuth();
+  const { createUser, loginUser } = useAuth();
 
   useEffect(() => {
     // document.title = 'Login Page Kowaja';

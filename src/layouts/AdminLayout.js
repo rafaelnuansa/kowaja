@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { UserAuth } from "../context/AuthContext";
-import { Navbar, NavDropdown, Form, Button } from "react-bootstrap";
+import { useAuth } from "../context/AuthContext";
+import { Navbar, NavDropdown, Form, Button, Image, NavItem } from "react-bootstrap";
 import Sidebar from "./Sidebar";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import profileImg from "../assets/icons/userAvatar.png";
 
 const LayoutAdmin = ({ children }) => {
   //state toggle
   const [sidebarToggle, setSidebarToggle] = useState(false);
-  const { currentUser, logoutUser } = UserAuth();
+  const { currentUser, logoutUser } = useAuth();
   const [ dataUser, setDataUser] = useState({
     email: '',
     displayName:'Nama User'
@@ -98,12 +99,16 @@ const LayoutAdmin = ({ children }) => {
               >
                 <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
                   <NavDropdown title={dataUser.displayName} className="border-0" id="basic-nav-dropdown">
+
                     <NavDropdown.Item onClick={handleLogout}>
                       {" "}
                       Logout
                     </NavDropdown.Item>
                   </NavDropdown>
+                  <NavItem className="mt-1"> 
+                <Image src={profileImg} width={30} height={30} roundedCircle /></NavItem>
                 </ul>
+                
               </div>
             </div>
           </Navbar>

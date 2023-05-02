@@ -1,8 +1,8 @@
 import { Form } from "react-bootstrap";
-function InputText({ titleForm, textType, onChange, value }) {
+function InputText({ titleForm, textType, onChange, value, controlId }) {
   console.log(titleForm);
   return (
-    <Form.Group className="mb-3" controlId="title">
+    <Form.Group className="mb-3" controlId={controlId}>
       <Form.Label className="fw-400 font-1">{titleForm}</Form.Label>
       {textType ? (
         <Form.Control
@@ -13,7 +13,12 @@ function InputText({ titleForm, textType, onChange, value }) {
           onChange={onChange}
         />
       ) : (
-        <Form.Control className="fc-kowaja" value={value} onChange={onChange} type="text" />
+        <Form.Control
+          className="fc-kowaja"
+          value={value}
+          onChange={onChange}
+          type="text"
+        />
       )}
     </Form.Group>
   );

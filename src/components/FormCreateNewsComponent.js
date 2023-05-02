@@ -45,11 +45,13 @@ function FormCreateNewsComponent() {
   return (
     <Form onSubmit={handleSubmit}>
       <InputText
-        titleForm="title"
+        controlId="title"
+        titleForm="Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
       <InputText
+        controlId="description"
         titleForm="Description"
         value={description}
         textType={"textarea"}

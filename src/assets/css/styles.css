@@ -136,6 +136,8 @@ html:not([dir="rtl"]) .mfe-3 {
   overflow: hidden;
 }
 
+
+
 .sign-in,
 .sign-up {
   cursor: pointer;
@@ -316,9 +318,6 @@ input.kowaja-input {
   margin-top:0;
   border:0;
   padding:0 0 10px 2;
-}
-.nav-link:hover {
-
 }
 .navbar-expand .navbar-nav .nav-link:hover {
 background : 

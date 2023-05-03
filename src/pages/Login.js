@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Button, Form, Row, Col, Image } from "react-bootstrap";
+import { Button, Form, Row, Col, Image, InputGroup } from "react-bootstrap";
 import { useAuth } from "../context/AuthContext";
 import toast from "react-hot-toast";
 import KowajaLogo from "../assets/images/logo.png";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import { ReactComponent as LockIcon } from "../assets/icons/lock.svg";
 
 
 function Login() {
@@ -164,15 +165,20 @@ function Login() {
                     />
                   </Form.Group>
                   <Form.Group className="mb-3 g-0" controlId="password">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
-                      type="password"
-                      name="password"
-                      onChange={(e) => setPassword(e.target.value)}
-                      className="kowaja-input"
-                      placeholder="**********"
-                    />
-                  </Form.Group>
+  <Form.Label>Password</Form.Label>
+  <InputGroup>
+    <Form.Control
+      type="password"
+      name="password"
+      onChange={(e) => setPassword(e.target.value)}
+      className="kowaja-input"
+      placeholder="**********"
+      aria-label="Password input with lock icon"
+      aria-describedby="password-lock-icon"
+      prepend={<LockIcon />}
+    />
+  </InputGroup>
+</Form.Group>
                   {!showLogin && (
                     <Form.Group
                       className="mb-1 g-0"

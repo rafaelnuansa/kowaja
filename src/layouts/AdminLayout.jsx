@@ -104,7 +104,8 @@ const LayoutAdmin = ({ children }) => {
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
-                  <NavItem></NavItem>
+                <NavItem className="mt-1"><Image src={bellIcon} /></NavItem>
+                  
                   <NavDropdown
                     title={dataUser.displayName}
                     className="border-0"

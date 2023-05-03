@@ -6,8 +6,6 @@ import KowajaLogo from "../assets/images/logo.png";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { ReactComponent as LockIcon } from "../assets/icons/lock.svg";
-
-
 function Login() {
   const [showLogin, setShowLogin] = useState(true);
   const [formStatus, setFormStatus] = useState("enter");

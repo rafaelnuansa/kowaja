@@ -47,6 +47,7 @@ function FormCreateProductComponent() {
         <Form.Control
           className="fc-kowaja"
           type="text"
+          placeholder="Enter your product title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
@@ -57,6 +58,7 @@ function FormCreateProductComponent() {
         <Form.Control
           as="textarea"
           rows={3}
+          placeholder="Enter your product description"
           className="fc-kowaja"
           value={description}
           onChange={(e) => setDescription(e.target.value)}

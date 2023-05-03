@@ -1,7 +1,15 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { Form, Button, Card, Alert, Container, Col, Row } from "react-bootstrap";
+import {
+  Form,
+  Button,
+  Card,
+  Alert,
+  Container,
+  Col,
+  Row,
+} from "react-bootstrap";
 import LayoutAdmin from "../layouts/AdminLayout";
 
 export default function UpdateProfile() {
@@ -11,6 +19,7 @@ export default function UpdateProfile() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  console.log(currentUser.displayName);
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -28,14 +37,17 @@ export default function UpdateProfile() {
 
   return (
     <LayoutAdmin>
-      <Container>
+      <Container className="mt-5">
         <Row>
           <Col>
-            <Card>
+            <Card className="border-0">
               <Card.Body>
                 <h2 className="text-center mb-4">Update Profile</h2>
                 {error && <Alert variant="danger">{error}</Alert>}
                 <Form onSubmit={handleSubmit}>
+                    
+                  <Row className="d-flex justify-content-center">
+                    <Col className="col-4">
                   <Form.Group id="displayName">
                     <Form.Label>Display Name</Form.Label>
                     <Form.Control
@@ -45,13 +57,15 @@ export default function UpdateProfile() {
                       required
                     />
                   </Form.Group>
-                  <Button
-                    disabled={loading}
-                    className="w-100 mt-4"
-                    type="submit"
-                  >
-                    Update
-                  </Button>
+                      <Button
+                        disabled={loading}
+                        className="w-100 mt-4 btn-kowaja"
+                        type="submit"
+                      >
+                        Update
+                      </Button>
+                    </Col>
+                  </Row>
                 </Form>
               </Card.Body>
             </Card>

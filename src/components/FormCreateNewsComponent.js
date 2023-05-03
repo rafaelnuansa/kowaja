@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
-// import { InputText } from "./Inputs/InputText";
-import InputText from "./Inputs/InputText";
+// import InputText from "./Inputs/InputText";
 
 function FormCreateNewsComponent() {
   const [title, setTitle] = useState("");
@@ -44,20 +43,29 @@ function FormCreateNewsComponent() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <InputText
-        controlId="title"
-        titleForm="Title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <InputText
-        controlId="description"
-        titleForm="Description"
-        value={description}
-        textType={"textarea"}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-
+      
+      <Form.Group className="mb-3" controlId="title">
+        <Form.Label className="fw-400 font-1">Title</Form.Label>
+        <Form.Control
+          className="fc-kowaja"
+          type="text"
+          placeholder="Enter your news title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+      </Form.Group>
+      
+      <Form.Group className="mb-3" controlId="description">
+        <Form.Label className="fw-400 font-1">Description</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={3}
+          placeholder="Enter your short description"
+          className="fc-kowaja"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+      </Form.Group>
       {/* 
       <Form.Group className="mb-3" controlId="description">
         <Form.Label className="fw-400 font-1">Description</Form.Label>

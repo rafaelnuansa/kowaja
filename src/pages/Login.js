@@ -27,22 +27,19 @@ function Login() {
     setError("");
     try {
       await loginUser(email, password);
-      const name = email
       setCurrentUser(currentUser);
-      toast.success(`Welcome back ${name}.`, {
+      toast.success(`Logged in Successfully.`, {
         icon: "👏",
         duration: 3000,
         position: "top-right",
         style: {
           borderRadius: "10px",
-          background: "#333",
-          color: "#fff",
         },
       });
       navigate("/dashboard");
     } catch (e) {
       if (e.code === "auth/wrong-password") {
-        toast.error("Password yang dimasukkan salah. Silakan coba lagi.", {
+        toast.error("Wrong password, please try again.", {
           duration: 3000,
           position: "top-right",
         });
@@ -52,7 +49,7 @@ function Login() {
           position: "top-right",
         });
       }else if (e.code === "auth/missing-email") {
-        toast.error("missing email missing. Please try again.", {
+        toast.error("Missing email. Please try again.", {
           duration: 3000,
           position: "top-right",
         });

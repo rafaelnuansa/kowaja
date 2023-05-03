@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
-import { Navbar, NavDropdown, Form, Button, Image, NavItem } from "react-bootstrap";
+import {
+  Navbar,
+  NavDropdown,
+  Form,
+  Button,
+  Image,
+  NavItem,
+} from "react-bootstrap";
 import Sidebar from "./Sidebar";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -10,9 +17,9 @@ const LayoutAdmin = ({ children }) => {
   //state toggle
   const [sidebarToggle, setSidebarToggle] = useState(false);
   const { currentUser, logoutUser } = useAuth();
-  const [ dataUser, setDataUser] = useState({
-    email: '',
-    displayName:'Nama User'
+  const [dataUser, setDataUser] = useState({
+    email: "",
+    displayName: "Nama User",
   });
   //navigate
   const navigate = useNavigate();
@@ -39,12 +46,12 @@ const LayoutAdmin = ({ children }) => {
   useEffect(() => {
     if (currentUser) {
       setDataUser({
-        email:currentUser.email,
-        displayName: currentUser.displayName || 'Nama User'
+        email: currentUser.email,
+        displayName: currentUser.displayName || "Nama User",
       });
       console.log(currentUser);
     }
-    }, [currentUser]);
+  }, [currentUser]);
 
   //function logout
   const handleLogout = async () => {
@@ -52,13 +59,11 @@ const LayoutAdmin = ({ children }) => {
       // setShowLoading(true); // menunjukkan animasi loading
       await logoutUser();
       navigate("/login");
-      toast.success(`You are logout.`, {
-        duration: 4000,
+      toast.success(`You are logouted`, {
+        duration: 3000,
         position: "top-right",
         style: {
           borderRadius: "10px",
-          background: "#333",
-          color: "#fff",
         },
       });
     } catch (error) {
@@ -70,7 +75,6 @@ const LayoutAdmin = ({ children }) => {
 
   return (
     <React.Fragment>
-      
       <div className="d-flex sb-sidenav-toggled" id="wrapper">
         <div className="bg-white" id="sidebar-wrapper">
           <div className="sidebar-heading text-center"></div>
@@ -98,15 +102,24 @@ const LayoutAdmin = ({ children }) => {
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
-                  <NavDropdown title={dataUser.displayName} className="border-0" id="basic-nav-dropdown">
-
+                  <NavDropdown
+                    title={dataUser.displayName}
+                    className="border-0"
+                    id="basic-nav-dropdown"
+                  >
                     <NavDropdown.Item onClick={handleLogout}>
                       {" "}
                       Logout
                     </NavDropdown.Item>
                   </NavDropdown>
-                  <NavItem className="mt-1"> 
-                <Image src={profileImg} width={30} height={30} roundedCircle /></NavItem>
+                  <NavItem className="mt-1">
+                    <Image
+                      src={profileImg}
+                      width={30}
+                      height={30}
+                      roundedCircle
+                    />
+                  </NavItem>
                 </ul>
                 
               </div>
@@ -115,7 +128,6 @@ const LayoutAdmin = ({ children }) => {
           <div className="container-fluid">{children}</div>
         </div>
       </div>
-      
     </React.Fragment>
   );
 };

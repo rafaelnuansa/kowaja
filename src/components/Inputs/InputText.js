@@ -1,5 +1,5 @@
 import { Form } from "react-bootstrap";
-function InputText({ titleForm, textType, onChange, value, controlId }) {
+function InputText({ titleForm, textType, onChange, value, controlId, placeholder }) {
   console.log(titleForm);
   return (
     <Form.Group className="mb-3" controlId={controlId}>
@@ -8,6 +8,7 @@ function InputText({ titleForm, textType, onChange, value, controlId }) {
         <Form.Control
           as="textarea"
           rows={3}
+          placeholder={placeholder}
           value={value}
           className="fc-kowaja"
           onChange={onChange}
@@ -15,6 +16,7 @@ function InputText({ titleForm, textType, onChange, value, controlId }) {
       ) : (
         <Form.Control
           className="fc-kowaja"
+          placeholder={placeholder}
           value={value}
           onChange={onChange}
           type="text"

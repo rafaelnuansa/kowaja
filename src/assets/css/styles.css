@@ -73,7 +73,7 @@ a {
 }
 
 .icon-sidebar {
-  margin-right: 5px;   
+  margin-right: 5px;
 }
 
 #sidebar-wrapper .list-group {
@@ -172,11 +172,13 @@ html:not([dir="rtl"]) .mfe-3 {
   /* width: 100%; */
   max-height: 400px;
 }
+
 @media (max-width: 768px) {
   .image-bg-auth {
     max-height: auto;
     position: relative;
   }
+
   .img-banner {
     position: relative;
     max-height: auto;
@@ -189,11 +191,9 @@ html:not([dir="rtl"]) .mfe-3 {
 }
 
 .overlay-bg-linear {
-  background: radial-gradient(
-    80.44% 205.92% at 11.69% 11.7%,
-    rgb(255 255 255 / 18%) 0%,
-    rgba(255, 255, 255, 0.1) 100%
-  );
+  background: radial-gradient(80.44% 205.92% at 11.69% 11.7%,
+      rgb(255 255 255 / 18%) 0%,
+      rgba(255, 255, 255, 0.1) 100%);
   width: 100%;
   height: 100%;
   box-sizing: border-box;
@@ -307,22 +307,26 @@ input.kowaja-input {
 /* Navbar Kowaja  */
 .navbar-kowaja {
   background: #fdfdfd;
-  padding-right:2rem;
+  padding-right: 2rem;
   padding-left: 2rem;
   box-shadow: 0px 2px 2px rgba(163, 171, 185, 0.26);
 }
+
 .dropdown-toggle::after {
   display: none;
 }
+
 .dropdown-menu {
-  margin-top:0;
-  border:0;
-  padding:0 0 10px 2;
+  margin-top: 0;
+  border: 0;
+  padding: 0 0 10px 2;
 }
+
 .navbar-expand .navbar-nav .nav-link:hover {
-background : 
-#3aab4f,
+  background:
+    #3aab4f,
 }
+
 .search-kowaja {
   background: #fdfdfd;
   box-shadow: 0px 1px 10px rgba(16, 24, 40, 0.1),
@@ -341,11 +345,9 @@ background :
 }
 
 .card-kowaja-linear {
-  background: linear-gradient(
-    180deg,
-    rgba(103, 241, 38, 0.729) 0%,
-    rgba(10, 247, 5, 0.9) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(103, 241, 38, 0.729) 0%,
+      rgba(10, 247, 5, 0.9) 100%);
   box-shadow: 0px 1px 6px rgba(16, 24, 40, 0.1),
     0px 1px 5px rgba(16, 24, 40, 0.06);
   border-radius: 8px;
@@ -363,6 +365,7 @@ background :
   overflow: hidden;
   padding-top: 1rem;
 }
+
 .link-sidebar-kowaja {
   display: block;
   text-decoration: none;

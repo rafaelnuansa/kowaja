@@ -58,6 +58,27 @@ function NotificationDropdown() {
     </Dropdown>
   );
 }
+// Somehow in windows OS innerwidth is off by 1 pixel
+const getIsMobile = () => window.matchMedia('(max-width: 1000px)').matches;
+
+function useIsMobile() {
+	const [isMobile, setIsMobile] = useState(getIsMobile());
+
+	useEffect(() => {
+		const onResize = () => {
+			setIsMobile(getIsMobile());
+		};
+
+		window.addEventListener('resize', onResize);
+
+		return () => {
+			window.removeEventListener('resize', onResize);
+		};
+	}, []);
+
+	return isMobile;
+}
+
 
 const LayoutAdmin = ({ children }) => {
   //state toggle
@@ -67,6 +88,7 @@ const LayoutAdmin = ({ children }) => {
     email: "",
     displayName: "Nama User",
   });
+  const isMobile = useIsMobile();
   //navigate
   const navigate = useNavigate();
   //function toggle hanlder
@@ -153,22 +175,36 @@ const LayoutAdmin = ({ children }) => {
                
           <NotificationDropdown />
                   <NavDropdown
-                    title={dataUser.displayName}
+                    title={
+                      isMobile ? 
+                      <Image
+                        src={profileImg}
+                        width={30}
+                        height={30}
+                        roundedCircle
+                      /> : <>{currentUser.displayName}
+                      <Image
+                        src={profileImg}
+                        width={30}
+                        height={30}
+                        roundedCircle
+                      /></>
+                    } 
                     className="border-0"
                     id="basic-nav-dropdown"
                   >
-                    <NavDropdown.Item className="dropdown-item-kowaja nav-link" onClick={handleLogout}>
+                    <NavDropdown.Item
+                    style={
+                      {
+                        paddingRight:'50px'
+                      }
+                    }
+                    className="dropdown-item-kowaja nav-link" onClick={handleLogout}>
                       {" "}
                       Logout
                     </NavDropdown.Item>
                   </NavDropdown>
                   <NavItem className="mt-1">
-                    <Image
-                      src={profileImg}
-                      width={30}
-                      height={30}
-                      roundedCircle
-                    />
                   </NavItem>
                 </ul>
                 

@@ -30,11 +30,11 @@ const UploadAdsComponent = () => {
   };
   return (
     <Form>
-    
-    <Form.Group className="mb-3" controlId="image">
 
-    <h2 className="text-center mb-3 fw-bold f-color-heading-ads">Upload File Here</h2>
-    <h4 className="text-center mb-5 f-color-heading-ads">Upload your file to advertise now</h4>
+      <Form.Group className="mb-3" controlId="image">
+
+        <h2 className="text-center mb-3 fw-bold f-color-heading-ads">Upload File Here</h2>
+        <h4 className="text-center mb-5 f-color-heading-ads">Upload your file to advertise now</h4>
         <input
           className="upload-file-kowaja d-none"
           type="file"
@@ -54,7 +54,11 @@ const UploadAdsComponent = () => {
             <Col className="col-lg-4 mb-2">
               {file ? (
                 <div className="selected-file">
-                  <span>{file.name}</span>
+                  {file.name.length <= 20 ? (
+                    <span>{file.name}</span>
+                  ) : (
+                    <span>{file.name.slice(0, 20) + '...'}</span>
+                  )}
                   <Button
                     variant="link"
                     onClick={() => {
@@ -85,13 +89,13 @@ const UploadAdsComponent = () => {
             <div className="fw-400 text-center">or Drop file here</div>
           </Row>
         </div>
-        
+
       </Form.Group>
       <Form.Group>
-      <Row className="d-flex justify-content-center">
+        <Row className="d-flex justify-content-center">
           <Col className="col-lg-4 ms-2 mb-4">
             <Button className="w-100" variant="kowaja" type="submit">
-             Create News
+              Create News
             </Button>
           </Col>
         </Row>

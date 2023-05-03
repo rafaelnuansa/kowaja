@@ -5,21 +5,40 @@ function FormCreateProductComponent() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
-  const [file, setFile] = useState(null);
-  const inputRef = useRef(null);
+  const [imageFile, setImageFile] = useState(null);
+  const [bannerImage, setBannerImage] = useState("");
+  const [bannerFile, setBannerFile] = useState(null);
+  const bannerRef = useRef(null);
+  const imageRef = useRef(null);
 
   const handleDrop = (e) => {
     e.preventDefault();
     const selectedFile = e.dataTransfer.files[0];
-    setFile(selectedFile);
-
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      setImage(event.target.result);
-    };
-    reader.readAsDataURL(selectedFile);
+    if (selectedFile && selectedFile.type.substr(0, 5) === "image") {
+      setImageFile(selectedFile);
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        setImage(event.target.result);
+      };
+      reader.readAsDataURL(selectedFile);
+    }
   };
 
+  const handleDropBanner = (e) => {
+    e.preventDefault();
+    const selectedFileBanner = e.dataTransfer.files[0];
+
+    if (selectedFileBanner && selectedFileBanner.type.substr(0, 5) === "image") {
+      setBannerFile(selectedFileBanner);
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        setBannerImage(event.target.result);
+      };
+      reader.readAsDataURL(selectedFileBanner);
+    }
+  };
+  
   const handleDragOver = (e) => {
     e.preventDefault();
     e.currentTarget.classList.add("dragging");
@@ -71,9 +90,9 @@ function FormCreateProductComponent() {
         <input
           className="upload-file-kowaja d-none"
           type="file"
-          ref={inputRef}
+          ref={imageRef}
           onChange={(e) => {
-            setFile(e.target.files[0]);
+            setImageFile(e.target.files[0]);
             setImage(URL.createObjectURL(e.target.files[0]));
           }}
         />
@@ -85,13 +104,13 @@ function FormCreateProductComponent() {
         >
           <Row className="d-flex justify-content-center">
             <Col className="col-lg-4 mb-2">
-              {file ? (
+              {imageFile ? (
                 <div className="selected-file">
-                  <span>{file.name}</span>
+                  <span>{imageFile.name}</span>
                   <Button
                     variant="link"
                     onClick={() => {
-                      setFile(null);
+                      setImageFile(null);
                       setImage("");
                     }}
                   >
@@ -101,7 +120,7 @@ function FormCreateProductComponent() {
               ) : (
                 <Button
                   className="browse-button btn-kowaja w-100"
-                  onClick={() => inputRef.current.click()}
+                  onClick={() => imageRef.current.click()}
                 >
                   Select file
                 </Button>
@@ -127,28 +146,28 @@ function FormCreateProductComponent() {
         <input
           className="upload-file-kowaja d-none"
           type="file"
-          ref={inputRef}
+          ref={bannerRef}
           onChange={(e) => {
-            setFile(e.target.files[0]);
-            setImage(URL.createObjectURL(e.target.files[0]));
+            setBannerFile(e.target.files[0]);
+            setBannerImage(URL.createObjectURL(e.target.files[0]));
           }}
         />
         <div
           className="drop-area mb-5"
-          onDrop={handleDrop}
+          onDrop={handleDropBanner}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
         >
           <Row className="d-flex justify-content-center">
             <Col className="col-lg-4 mb-2">
-              {file ? (
+              {bannerFile ? (
                 <div className="selected-file">
-                  <span>{file.name}</span>
+                  <span>{bannerFile.name}</span>
                   <Button
                     variant="link"
                     onClick={() => {
-                      setFile(null);
-                      setImage("");
+                      setBannerFile(null);
+                      setBannerImage("");
                     }}
                   >
                     X
@@ -157,15 +176,15 @@ function FormCreateProductComponent() {
               ) : (
                 <Button
                   className="browse-button btn-kowaja w-100"
-                  onClick={() => inputRef.current.click()}
+                  onClick={() => bannerRef.current.click()}
                 >
                   Select file
                 </Button>
               )}
-              {image && (
+              {bannerImage && (
                 <img
                   className="mt-3"
-                  src={image}
+                  src={bannerImage}
                   alt="Selected file"
                   width="100%"
                 />

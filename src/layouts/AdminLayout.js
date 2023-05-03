@@ -12,6 +12,7 @@ import Sidebar from "./Sidebar";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import profileImg from "../assets/icons/userAvatar.png";
+import bellIcon from "../assets/icons/notifbell.svg";
 
 const LayoutAdmin = ({ children }) => {
   //state toggle
@@ -81,6 +82,7 @@ const LayoutAdmin = ({ children }) => {
           <Sidebar />
         </div>
         <div id="page-content-wrapper">
+          
           <Navbar className="navbar navbar-expand-lg navbar-light navbar-kowaja">
             <div className="container-fluid">
               <Button
@@ -102,12 +104,13 @@ const LayoutAdmin = ({ children }) => {
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
+                  <NavItem></NavItem>
                   <NavDropdown
                     title={dataUser.displayName}
                     className="border-0"
                     id="basic-nav-dropdown"
                   >
-                    <NavDropdown.Item onClick={handleLogout}>
+                    <NavDropdown.Item className="dropdown-item-kowaja nav-link" onClick={handleLogout}>
                       {" "}
                       Logout
                     </NavDropdown.Item>

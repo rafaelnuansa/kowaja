@@ -88,6 +88,7 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
   margin-left: 0;
 }
 
+
 @media (min-width: 768px) {
   #sidebar-wrapper {
     margin-left: 0;
@@ -304,9 +305,25 @@ input.kowaja-input {
 /* Navbar Kowaja  */
 .navbar-kowaja {
   background: #fdfdfd;
+  padding-right:2rem;
+  padding-left: 2rem;
   box-shadow: 0px 2px 2px rgba(163, 171, 185, 0.26);
 }
+.dropdown-toggle::after {
+  display: none;
+}
+.dropdown-menu {
+  margin-top:0;
+  border:0;
+  padding:0 0 10px 2;
+}
+.nav-link:hover {
 
+}
+.navbar-expand .navbar-nav .nav-link:hover {
+background : 
+#3aab4f,
+}
 .search-kowaja {
   background: #fdfdfd;
   box-shadow: 0px 1px 10px rgba(16, 24, 40, 0.1),
@@ -417,4 +434,16 @@ input.kowaja-input {
 
 .f-color-heading-ads {
   color: #616161;
+}
+
+.table-kowaja thead th {
+  background: #BBE0B9;
+  padding: 15px;
+  border-right: 15px solid #fff;
+}
+
+.table-kowaja tbody td {
+  padding: 15px;
+  border-right: 15px solid #fff;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
 }

@@ -171,9 +171,7 @@ const LayoutAdmin = ({ children }) => {
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
-              
-               
-          <NotificationDropdown />
+                  <NotificationDropdown />
                   <NavDropdown
                     title={
                       isMobile ? 

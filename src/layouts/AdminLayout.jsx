@@ -7,12 +7,57 @@ import {
   Button,
   Image,
   NavItem,
+  Dropdown,
+  Popover,
 } from "react-bootstrap";
 import Sidebar from "./Sidebar";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import profileImg from "../assets/icons/userAvatar.png";
 import bellIcon from "../assets/icons/notifbell.svg";
+
+function NotificationDropdown() {
+  const [showPopover, setShowPopover] = useState(false);
+
+  const popover = (
+    <Popover>
+      <Popover.Header>Notifications</Popover.Header>
+      <Popover.Body>
+        <ul>
+          <li>New message from John</li>
+          <li>New follower: Jane</li>
+          <li>10% off coupon</li>
+        </ul>
+      </Popover.Body>
+    </Popover>
+  );
+
+  return (
+    <Dropdown onToggle={(isOpen) => setShowPopover(isOpen)}>
+      <Dropdown.Toggle as={Button} variant="link">
+        <Image src={bellIcon}/>
+      </Dropdown.Toggle>
+      <Dropdown.Menu>
+        <Popover
+          id="popover-notifications"
+          show={showPopover}
+          placement="bottom"
+          target={document.getElementById("popover-notifications-target")}
+        >
+          {popover}
+        </Popover>
+        <Dropdown.Item>
+          <div
+            id="popover-notifications-target"
+            onClick={() => setShowPopover(!showPopover)}
+          >
+            Notifications
+          </div>
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+}
 
 const LayoutAdmin = ({ children }) => {
   //state toggle
@@ -104,8 +149,9 @@ const LayoutAdmin = ({ children }) => {
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
-                <NavItem className="mt-1"><Image src={bellIcon} /></NavItem>
-                  
+              
+               
+          <NotificationDropdown />
                   <NavDropdown
                     title={dataUser.displayName}
                     className="border-0"

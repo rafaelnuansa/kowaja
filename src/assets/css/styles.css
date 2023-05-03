@@ -328,6 +328,11 @@ input.kowaja-input {
     #3aab4f;
     color:#fff;
 }
+.dropdown-item.active, .dropdown-item:active {
+  background:
+    #3aab4f;
+    color:#fff;
+}
 .search-kowaja {
   background: #fdfdfd;
   box-shadow: 0px 1px 10px rgba(16, 24, 40, 0.1),

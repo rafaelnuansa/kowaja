@@ -322,11 +322,13 @@ input.kowaja-input {
   padding: 0 0 10px 2;
 }
 
-.navbar-expand .navbar-nav .nav-link:hover {
+.navbar-expand .navbar-nav .nav-link:hover,
+.navbar-expand .navbar-nav .nav-link:active
+{
   background:
-    #3aab4f,
+    #3aab4f;
+    color:#fff;
 }
-
 .search-kowaja {
   background: #fdfdfd;
   box-shadow: 0px 1px 10px rgba(16, 24, 40, 0.1),

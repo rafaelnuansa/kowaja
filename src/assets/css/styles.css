@@ -322,8 +322,7 @@ input.kowaja-input {
   padding: 0 0 10px 2;
 }
 
-.navbar-expand .navbar-nav .nav-link:hover,
-.navbar-expand .navbar-nav .nav-link:active
+.navbar-expand .navbar-nav .dropdown-menu .nav-link:hover
 {
   background:
     #3aab4f;

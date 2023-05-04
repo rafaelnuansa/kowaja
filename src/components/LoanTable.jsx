@@ -13,7 +13,7 @@ const data = [
 
 const LoanTable = () => {
   return (
-    <Table className='table-kowaja'>
+    <Table className='table-kowaja' responsive>
       <thead>
         <tr>
           <th>Name</th>

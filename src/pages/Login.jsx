@@ -161,42 +161,55 @@ function Login() {
                       placeholder="Nomor Ponsel Atau Email"
                     />
                   </Form.Group>
+
                   <Form.Group className="mb-3 g-0" controlId="password">
                     <Form.Label>Password</Form.Label>
-                    <InputGroup className="input-icons">
-                      <LockIcon className="form-icon" />
-                      <input
-                        name="password"
-                        type="password"
-                        className="form-control kowaja-input" 
-                        onChange={(e) => setPassword(e.target.value)}
-                        
-                      />
+                    <InputGroup>
+                      {/* <LockIcon className="form-icon" /> */}
+                      <div className="card-body d-flex no-gutters align-items-center">
+                      <div className="col-auto">
+                          <div className="kowaja-auth-icon">
+                            <LockIcon/>
+                          </div>
+                        </div>
+                        <div className="col with-icons">
+                          <input 
+                          className="form-control kowaja-input" 
+                          name="password" 
+                          type="password" 
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                          placeholder="**********" />
+                        </div>
+                      </div>
 
-                      {/* <Form.Control
-                        type="password"
-                        name="password"
-                        onChange={(e) => setPassword(e.target.value)}
-                        className="kowaja-input"
-                        placeholder="**********"
-                      /> */}
                     </InputGroup>
                   </Form.Group>
                   {!showLogin && (
-                    <Form.Group
-                      className="mb-1 g-0"
-                      controlId="confirmPassword"
-                    >
-                      <Form.Label>Confirm Password</Form.Label>
-                      <Form.Control
-                        className="kowaja-input"
-                        type="password"
-                        name="confirmPassword"
+                    
+                  <Form.Group className="mb-3 g-0" controlId="confirmPassword">
+                  <Form.Label>Confirm Password</Form.Label>
+                  <InputGroup>
+                    {/* <LockIcon className="form-icon" /> */}
+                    <div className="card-body d-flex no-gutters align-items-center">
+                    <div className="col-auto">
+                        <div className="kowaja-auth-icon">
+                          <LockIcon/>
+                        </div>
+                      </div>
+                      <div className="col with-icons">
+                        <input 
+                        className="form-control kowaja-input" 
+                        name="confirmPassword" 
+                        type="password" 
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
-                        placeholder="**********"
-                      />
-                    </Form.Group>
+                        placeholder="**********" />
+                      </div>
+                    </div>
+
+                  </InputGroup>
+                </Form.Group>
                   )}
                   <span>
                     {showLogin ? (

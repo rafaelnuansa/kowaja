@@ -24,7 +24,7 @@ const UploadAdsComponent = () => {
     e.currentTarget.classList.add("dragging");
   };
 
-  const handleDragLeave = (e) => {
+  const handleDragLeave = (e) => { 
     e.preventDefault();
     e.currentTarget.classList.remove("dragging");
   };
@@ -66,7 +66,8 @@ const UploadAdsComponent = () => {
                       setImage("");
                     }}
                   >
-                    X
+                    
+                    <i className="fas fa-trash text-danger"></i>
                   </Button>
                 </div>
               ) : (

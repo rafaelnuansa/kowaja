@@ -10,11 +10,11 @@ const BannerSlider = () => {
     infinite: true,
     speed: 3000,
     slidesToShow: 1,
-    slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
     centerMode: true,
-    variableWidth: true
+    variableWidth: true,
+    lazyLoad: 'ondemand',
   };
 
   return (

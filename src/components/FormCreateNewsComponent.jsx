@@ -87,7 +87,7 @@ function FormCreateNewsComponent() {
           onDragLeave={handleDragLeave}
         >
           <Row className="d-flex justify-content-center">
-            <Col className="col-lg-4 mb-2">
+            <Col className="col-4 col-lg-4 mb-2">
               {file ? (
                 <div className="selected-file">
                   <span>{file.name}</span>

@@ -159,7 +159,7 @@ function FormCreateProductComponent() {
           onDragLeave={handleDragLeave}
         >
           <Row className="d-flex justify-content-center">
-            <Col className="col-lg-4 mb-2">
+            <Col className="col-4 col-lg-4 mb-2">
               {bannerFile ? (
                 <div className="selected-file">
                   <span>{bannerFile.name}</span>

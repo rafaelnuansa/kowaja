@@ -162,17 +162,16 @@ const LayoutAdmin = ({ children }) => {
               </Form>
             </ul>
             <ul className="navbar-nav align-items-center ms-auto">
-              <li className="nav-item dropdown mr-4 d-block d-md-block d-lg-block">
+              <li className="nav-item dropdown mr-4 d-block d-md-block d-lg-block" style={!isMobile ? {marginRight:"30px"}:{marginRight: "10px"}}>
                 <a className="dropdown-toggle-notification nav-link" href="#" onClick={notificationDropdownHandler} aria-expanded="true">
-                <span className="count"></span>
-                <i className="fa fa-bell"></i>
+                {!isMobile ?? <><span className="count"></span></>}
+                <i className="fa fa-bell" style={{color:"#9E9E9E"}}></i>
                 </a>
                 <div className="dropdown-menu dropdown-menu-right shadow-lg border-0 dropdown-menu-left rounded shadow-custom" id="NotificationDropdown" aria-labelledby="navbarDropdownMenuLink"
                  style={!isMobile ? { width: "25rem" } : {}}
                 >
                   <div className="notification-title">
-                    <div className="text-center p-2">
-                      <i className="fa fa-bell"></i> Notification
+                    <div className="text-center p-2">Notification
                     </div>
                   </div>
                   <hr style={{marginBottom: "0rem"}}/>

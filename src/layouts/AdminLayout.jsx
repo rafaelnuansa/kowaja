@@ -164,7 +164,7 @@ const LayoutAdmin = ({ children }) => {
             <ul className="navbar-nav align-items-center ms-auto">
               <li className="nav-item dropdown mr-4 d-block d-md-block d-lg-block" style={!isMobile ? {marginRight:"30px"}:{marginRight: "10px"}}>
                 <a className="dropdown-toggle-notification nav-link" href="#" onClick={notificationDropdownHandler} aria-expanded="true">
-                {!isMobile ?? <><span className="count"></span></>}
+                {!isMobile && <><span className="count"></span></>}
                 <i className="fa fa-bell" style={{color:"#9E9E9E"}}></i>
                 </a>
                 <div className="dropdown-menu dropdown-menu-right shadow-lg border-0 dropdown-menu-left rounded shadow-custom" id="NotificationDropdown" aria-labelledby="navbarDropdownMenuLink"

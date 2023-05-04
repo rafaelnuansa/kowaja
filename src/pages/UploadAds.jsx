@@ -14,7 +14,7 @@ function UploadAds() {
   return (
     <React.Fragment>
       <LayoutAdmin>
-        <Container>
+        <Container fluid>
           <Row className="mt-5 d-flex justify-content-center">
             <Col className="col-12 col-lg-8 mb-4">
               <UploadAdsComponent/>

@@ -11,7 +11,7 @@ function CreateProduct() {
   return ( 
     <React.Fragment>
       <LayoutAdmin>
-        <Container>
+        <Container fluid>
           <Row className="mt-5">
             <Col className="col-12 col-lg-8 justify-content-center">
               <FormCreateProductComponent/>

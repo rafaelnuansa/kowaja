@@ -14,7 +14,7 @@ function LoanApp() {
   return (
     <React.Fragment>
       <LayoutAdmin>
-        <Container>
+        <Container fluid>
 
           <Row className="mt-4 mb-4">
             <Col className="col-12 col-lg-4 mb-4">

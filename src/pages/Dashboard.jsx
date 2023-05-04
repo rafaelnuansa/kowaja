@@ -21,7 +21,7 @@ function Dashboard() {
   return (
     <React.Fragment>
       <LayoutAdmin>
-        <Container>
+        <Container fluid>
           
         <Row className="mt-4 mb-4">
           <Col className="col-12 col-lg-8 mb-5">

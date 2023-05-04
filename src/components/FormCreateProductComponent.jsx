@@ -114,7 +114,7 @@ function FormCreateProductComponent() {
                       setImage("");
                     }}
                   >
-                    X
+                  <i className="fas fa-trash text-danger"></i>
                   </Button>
                 </div>
               ) : (
@@ -170,7 +170,7 @@ function FormCreateProductComponent() {
                       setBannerImage("");
                     }}
                   >
-                    X
+                  <i className="fas fa-trash text-danger"></i>
                   </Button>
                 </div>
               ) : (

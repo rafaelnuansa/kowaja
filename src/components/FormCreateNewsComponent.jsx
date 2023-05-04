@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
-// import InputText from "./Inputs/InputText";
+import { toast } from "react-hot-toast";
 
 function FormCreateNewsComponent() {
   const [title, setTitle] = useState("");
@@ -34,6 +34,7 @@ function FormCreateNewsComponent() {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Lakukan sesuatu dengan data yang di-submit (misalnya, kirim ke server)
+    toast('Create News Notification');
     console.log({ title, description, image });
     // Reset form
     setTitle("");
@@ -66,17 +67,6 @@ function FormCreateNewsComponent() {
           onChange={(e) => setDescription(e.target.value)}
         />
       </Form.Group>
-      {/* 
-      <Form.Group className="mb-3" controlId="description">
-        <Form.Label className="fw-400 font-1">Description</Form.Label>
-        <Form.Control
-          as="textarea"
-          rows={3}
-          className="fc-kowaja"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-      </Form.Group> */}
 
       <Form.Group className="mb-3" controlId="image">
         <Form.Label className="fw-400 font-1">Enter a News Image</Form.Label>
@@ -108,7 +98,7 @@ function FormCreateNewsComponent() {
                       setImage("");
                     }}
                   >
-                    X
+                    <i className="fas fa-trash text-danger"></i>
                   </Button>
                 </div>
               ) : (

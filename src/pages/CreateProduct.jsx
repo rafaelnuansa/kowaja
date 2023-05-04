@@ -2,9 +2,6 @@ import React, { useEffect } from "react";
 import LayoutAdmin from "../layouts/AdminLayout";
 import { Col, Container, Row } from "react-bootstrap";
 import FormCreateProductComponent from "../components/FormCreateProductComponent";
-// import LoanTable from "../components/LoanTable";
-// import TinyBarChartCard from "../components/TinyBarChartCard";
-// import BorrowerChartCard from "../components/BorrowerChartCard";
 
 function CreateProduct() {
   useEffect(() => {

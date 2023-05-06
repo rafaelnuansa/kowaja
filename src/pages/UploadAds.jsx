@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
 import LayoutAdmin from "../layouts/AdminLayout";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Image } from "react-bootstrap";
 import UploadAdsComponent from "../components/UploadAdsComponent";
-// import LoanTable from "../components/LoanTable";
-// import TinyBarChartCard from "../components/TinyBarChartCard";
-// import BorrowerChartCard from "../components/BorrowerChartCard";
+// import BannerImage from "../assets/images/banners/Banner.png";
 
 function UploadAds() {
   useEffect(() => {
@@ -18,6 +16,11 @@ function UploadAds() {
           <Row className="mt-5 d-flex justify-content-center">
             <Col className="col-12 col-lg-8 mb-4">
               <UploadAdsComponent/>
+            </Col>
+          </Row>
+          <Row className="d-flex justify-content-center text-center" style={{ margin:"150px" }}>
+          <Col className="col-12 col-8">
+              < Image src="../assets/images/banners/Banner.png" />
             </Col>
           </Row>
         </Container>

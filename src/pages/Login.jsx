@@ -18,7 +18,7 @@ function Login() {
   const { createUser, loginUser } = useAuth();
 
   useEffect(() => {
-    // document.title = 'Login Page Kowaja';
+    document.title = 'Login Page Kowaja';
   }, []);
 
   const handleLogin = async (e) => {

@@ -2,13 +2,10 @@ import React, { useEffect } from "react";
 import LayoutAdmin from "../layouts/AdminLayout";
 import { Col, Container, Row } from "react-bootstrap";
 import FormCreateNewsComponent from "../components/FormCreateNewsComponent";
-// import LoanTable from "../components/LoanTable";
-// import TinyBarChartCard from "../components/TinyBarChartCard";
-// import BorrowerChartCard from "../components/BorrowerChartCard";
 
 function CreateNews() {
   useEffect(() => {
-    // checkAuth();
+    document.title = 'Create News';
   }, []);
 
   return ( 
@@ -21,7 +18,7 @@ function CreateNews() {
             </Col>
           </Row>
         </Container>
-      </LayoutAdmin>
+      </LayoutAdmin>=
     </React.Fragment>
   );
 }

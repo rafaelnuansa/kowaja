@@ -151,7 +151,6 @@ const LayoutAdmin = ({ children }) => {
             <Link className="navbar-brand pe-3 ps-4 ps-lg-0" href="#">
             </Link>
             <ul className="navbar-nav align-item-start">
-
               <Form className="d-flex">
                 <Form.Control
                   type="search"
@@ -219,7 +218,8 @@ const LayoutAdmin = ({ children }) => {
                     </Link>
                     <div className="dropdown-menu dropdown-menu-right mt-2 border-0 shadow-custom rounded" id="profileDropdown">
                       <Link onClick={handleLogout} className="dropdown-item">
-                        Logout</Link>
+                        Logout
+                      </Link>
                     </div>
                   </li>
                 </ul>
